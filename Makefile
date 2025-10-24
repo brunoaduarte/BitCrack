@@ -17,7 +17,7 @@ NVCC=nvcc
 
 # List of CUDA compute capabilities to target when building device code.
 # Additional architectures can be provided via `CUDA_ARCH_LIST="90" make`.
-CUDA_ARCH_LIST ?= 52 61 75 86 89
+CUDA_ARCH_LIST ?= 52 61 75 86 89 90 100 120
 NVCC_ARCH_FLAGS := $(foreach arch,$(CUDA_ARCH_LIST),-gencode=arch=compute_$(arch),code=sm_$(arch) -gencode=arch=compute_$(arch),code=compute_$(arch))
 NVCCFLAGS=-std=c++11 $(NVCC_ARCH_FLAGS) -Xptxas="-v" -Xcompiler "${CXXFLAGS}"
 
